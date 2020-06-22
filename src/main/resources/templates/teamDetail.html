@@ -5,6 +5,19 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<h2>球団名</h2>
+<span th:text="${team.teamName}">球団名</span>
+<h2>本拠地</h2>
+<span th:text="${team.headquarters}">本拠地</span>
+<h2>発足</h2>
+<span th:text="${team.inauguration}">発足</span>
+<h2>歴史</h2>
+<div th:each="history : ${team.historyList}">
+<span th:text="${history}">歴史</span>
+</div>
+<br>
+<form method="post" th:action="@{/Ex01/teamList}">
+<button th:href="@{/Ex01/teamList}">戻る</button>
+</form>
 </body>
 </html>
