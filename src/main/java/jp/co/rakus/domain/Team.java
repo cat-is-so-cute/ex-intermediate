@@ -1,7 +1,5 @@
 package jp.co.rakus.domain;
 
-import java.util.List;
-
 /**
  * チームのドメインクラスです.
  * 
@@ -21,7 +19,7 @@ public class Team {
 	/** 発足 */
 	private String inauguration;
 	/** 歴史 */
-	private List<String> historyList;
+	private String history;
 
 	public Integer getId() {
 		return id;
@@ -63,18 +61,18 @@ public class Team {
 		this.inauguration = inauguration;
 	}
 
-	public List<String> getHistoryList() {
-		return historyList;
+	public String getHistory() {
+		return history;
 	}
 
-	public void setHistoryList(List<String> historyList) {
-		this.historyList = historyList;
+	public void setHistory(String history) {
+		this.history = history;
 	}
 
 	@Override
 	public String toString() {
 		return "Team [id=" + id + ", leagueName=" + leagueName + ", teamName=" + teamName + ", headquarters="
-				+ headquarters + ", inauguration=" + inauguration + ", historyList=" + historyList + "]";
+				+ headquarters + ", inauguration=" + inauguration + ", history=" + history + "]";
 	}
 
 }

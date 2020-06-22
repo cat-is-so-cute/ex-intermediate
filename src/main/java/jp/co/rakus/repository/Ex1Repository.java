@@ -1,6 +1,5 @@
 package jp.co.rakus.repository;
 
-import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +32,7 @@ public class Ex1Repository {
 		team.setTeamName(rs.getString("team_name"));
 		team.setHeadquarters(rs.getString("headquarters"));
 		team.setInauguration(rs.getString("inauguration"));
-		team.setHistoryList(Arrays.asList(rs.getString("history").split("\n")));
+		team.setHistory(rs.getString("history"));
 		
 		return team;
 	};

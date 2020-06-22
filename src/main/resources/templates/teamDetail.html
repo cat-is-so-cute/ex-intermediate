@@ -12,9 +12,7 @@
 <h2>発足</h2>
 <span th:text="${team.inauguration}">発足</span>
 <h2>歴史</h2>
-<div th:each="history : ${team.historyList}">
-<span th:text="${history}">歴史</span>
-</div>
+<div th:text="${team.history}" style="white-space: pre;">歴史</div>
 <br>
 <form method="post" th:action="@{/Ex01/teamList}">
 <button th:href="@{/Ex01/teamList}">戻る</button>
