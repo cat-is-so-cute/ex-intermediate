@@ -38,4 +38,10 @@ public class HotelRepository {
 		return template.query(sql, param,HOTEL_ROW_MAPPER);
 	}
 	
+	public List<Hotel> findAll(){
+		String sql = "SELECT id, area_name, hotel_name, address, nearest_station, price, parking FROM hotels ORDER BY price DESC;";
+		
+		return template.query(sql, HOTEL_ROW_MAPPER);
+	}
+	
 }
