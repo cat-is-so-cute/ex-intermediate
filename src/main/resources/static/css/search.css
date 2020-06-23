@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+input.search {
+	margin-bottom: 10px;
+}
+
 table {
 	width: 100%;
 	border-collapse: collapse;

@@ -1,12 +1,25 @@
 package jp.co.rakus.domain;
 
+/**
+ * ホテルのドメインクラスです.
+ * 
+ * @author ryosuke.nakanishi
+ *
+ */
 public class Hotel {
+	/** ID */
 	private Integer id;
+	/** 地域名 */
 	private String areaName;
+	/** ホテル名 */
 	private String hotelName;
+	/** 住所 */
 	private String address;
+	/** 最寄り駅 */
 	private String nearestStation;
+	/** 価格 */
 	private Integer price;
+	/** 駐車場の有無 */
 	private String parking;
 
 	public Integer getId() {

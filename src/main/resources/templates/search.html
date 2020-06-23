@@ -2,13 +2,14 @@
 <html lang="ja" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>ホテル検索</title>
 <link rel="stylesheet" th:href="@{/css/search.css}">
 </head>
 <body>
+
 <h1>ホテル検索</h1>
 	<form th:action="@{/Ex02/search}" method="post">
-		<input type="text" name="price">円以下<br>
+		<input type="text" name="price" oninput="value = value.replace(/[^0-9]+/i,'');" class="search">円以下<br>
 		<button>検索</button>
 	</form>
 	<br>
@@ -26,5 +27,6 @@
 			<td th:text="${hotel.price}">price</td>
 		</tr>
 	</table>
+
 </body>
 </html>

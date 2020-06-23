@@ -10,8 +10,18 @@ import org.springframework.stereotype.Repository;
 
 import jp.co.rakus.domain.Hotel;
 
+/**
+ * ホテルの情報を扱うためのレポジトリです.
+ * 
+ * @author ryosuke.nakanishi
+ *
+ */
 @Repository
 public class HotelRepository {
+	/**
+	 * ホテルのRowMapperを定義します.
+	 * 
+	 */
 	private static final RowMapper<Hotel> HOTEL_ROW_MAPPER = (rs, i) -> {
 		Hotel hotel = new Hotel();
 		hotel.setId(rs.getInt("id"));
@@ -28,6 +38,14 @@ public class HotelRepository {
 	@Autowired
 	private NamedParameterJdbcTemplate template;
 	
+	/**
+	 * 与えられた価格以下のホテルを検索するメソッドです.
+	 * 
+	 * @param price
+	 * 				価格
+	 * @return
+	 * 				与えられた価格以下のホテルをリスト形式で返します。
+	 */
 	public List<Hotel> searchPrice(int price) {
 		String sql = "SELECT id, area_name, hotel_name, address, nearest_station, price, parking FROM hotels WHERE price <= :price ORDER BY price DESC;";
 		
@@ -35,9 +53,16 @@ public class HotelRepository {
 		
 		param.addValue("price", price);
 		
-		return template.query(sql, param,HOTEL_ROW_MAPPER);
+		return template.query(sql, param, HOTEL_ROW_MAPPER);
 	}
 	
+	/**
+	 * ホテルの全権検索を行うメソッドです
+	 * 
+	 * @return
+	 * 				ホテルの全権検索結果をリスト形式で返します。
+	 * 
+	 */
 	public List<Hotel> findAll(){
 		String sql = "SELECT id, area_name, hotel_name, address, nearest_station, price, parking FROM hotels ORDER BY price DESC;";
 		
