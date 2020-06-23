@@ -3,12 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/search.css}">
 </head>
 <body>
 <h1>ホテル検索</h1>
 	<form th:action="@{/Ex02/search}" method="post">
-		<input type="text" name="price">円以下
+		<input type="text" name="price">円以下<br>
 		<button>検索</button>
 	</form>
+	<br>
+	<table th:each="hotel : ${hotelList}">
+		<tr class="odd">
+			<td class="item">ホテル名</td>
+			<td th:text="${hotel.hotelName}">hotelName</td>
+		</tr>
+		<tr class="even">
+			<td class="item">最寄り駅</td>
+			<td th:text="${hotel.nearestStation}">nearestStation</td>
+		</tr>
+		<tr class="odd">
+			<td class="item">価格</td>
+			<td th:text="${hotel.price}">price</td>
+		</tr>
+	</table>
 </body>
 </html>
